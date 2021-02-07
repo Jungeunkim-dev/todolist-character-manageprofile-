@@ -12,61 +12,49 @@ export default class App extends React.Component {
     return (
       <View style={styles.container}>
         <View style={styles.header}>
-          <Text>네비게이션 부분입니다.</Text>
+          <Text>헤더 적용</Text>
         </View>
-        
-        <View style={styles.category}>
-        <View style={styles.cardview}>
-
-
+        <View style={styles.profilebackground}>
         </View>
-        <View style={styles.navigator}>
-          <Text>네비게이터 적용해 줄 공간입니다.</Text>
-
+        <View style={styles.profilephotocircle}>
         </View>
 
-
-        <Modal
-          animationType={'fade'}
-          transparent={true}
-          visible={this.state.isVisible}
-          onRequestClose={() => {
-            Alert.alert('Modal is closed');
+        <Image
+          style={styles.tinyphoto}
+          source={{
+            uri: 'https://reactnative.dev/img/tiny_logo.png',
           }}
+        />
+        <View style={styles.profilelist}>
+          <View style={styles.profilelistdetail}>
+            <TextInput placeholder='닉네임'>닉네임</TextInput>
+            <Text>이메일(연동계정)</Text>
+            <View
+              style={{
+                borderBottomColor: 'black',
+                borderBottomWidth: 1,
+              }}
+            />
+              <Text style={styles.listtext}>알림설정</Text>
+            <TouchableOpacity>
+              <Text style={styles.listtext}>앱 버전</Text>
+            </TouchableOpacity>
+            <TouchableOpacity>
+              <Text style={styles.listtext}>문의사항</Text>
+            </TouchableOpacity>
+            <TouchableOpacity>
+              <Text style={styles.listtext}>구글플레이 스토어 리뷰</Text>
+            </TouchableOpacity>
 
-        >
-          <View style={{
-            flex: 1,
-            flexDirection: 'column',
-            justifyContent: 'center',
-            alignItems: 'center',
-            backgroundColor: 'rgba(0,0,0,0.5)'
-          }}>
-            <View style={{
-              backgroundColor: '#fff',
-              width: 300,
-              height: 300,
-              borderRadius: 10,
-              shadowColor: '#000',
-              shadowOffset: {
-                width: 4,
-                height: 1,
-              },
-              shadowOpacity: 0.1,
-              shadowRadius: 1.00,
-              elevation: 24,
-            }}>
-              <Text>캐릭터 사진</Text>
-              <Text>설명 : 달수리는 물에 사는~~~</Text>
-
-              <Text onPress={() => { this.displayModal(!this.state.isVisible); }}>닫기</Text>
-            </View>
           </View>
+        </View>
 
-        </Modal>
 
+        <View style={styles.navigator}>
+              <Text>네비게이터 적용공간</Text>
+        </View>
       </View>
-      </View>
+
 
     );
   }
@@ -82,45 +70,61 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     backgroundColor: 'white',
   },
-  circleindicator: {
-    height: 72,
-    flexDirection: 'row',
-    justifyContent: 'space-evenly',
-    borderBottomColor: 'black',
-    borderBottomWidth: StyleSheet.hairlineWidth
+  profilebackground: {
+    height: 101,
+    backgroundColor: '#cfcfcf',
+    borderRadius: 100,
   },
-  category: {
-    height: 48,
-    flexDirection: 'row',
-    justifyContent: 'space-evenly',
-    borderBottomColor: 'black',
-    borderBottomWidth: StyleSheet.hairlineWidth,
-    elevation: 2,
+  profilephotocircle: {
+    position: 'absolute',
+    top: 120,
+    bottom: 430,
+    right: 254,
+    left: 16,
+    height: 90,
+    width: 90,
+    borderRadius: 100,
+    backgroundColor: 'white',
   },
-  cardview: {
-    height: 390,
-    alignItems: 'center',
-    justifyContent: 'center',
-
-  },
-  charactercard: {
-    marginTop: 32,
-    marginLeft: 17,
-    marginRight: 17,
-    alignItems: 'center',
-    justifyContent: 'center',
+  tinyphoto: {
+    position: 'absolute',
+    top: 128,
+    bottom: 438,
+    right: 262,
+    left: 24,
+    height: 74,
+    width: 74,
+    borderRadius: 100,
   },
 
+  profilelist: {
+    backgroundColor: 'white',
+    height: 374,
+    marginTop: 40,
 
+  },
+  profilelistdetail: {
+    backgroundColor: 'white',
+    marginTop:3,
+    marginLeft: 32,
+    marginRight: 24,
+  },
 
   navigator: {
-    height: 52,
+    height: 56,
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-evenly',
-    backgroundColor: 'white',
+    backgroundColor: '#cfcfcf',
+
+
   },
 
+  listtext:{
+    fontSize:14,
+    marginTop:32,
+    flexDirection:'row',
+  },
   //button component
 
   // 캐릭터 버튼
@@ -158,8 +162,5 @@ const styles = StyleSheet.create({
     borderColor: 'black',
     borderRadius: 20,
   },
-
-
-
 
 });
